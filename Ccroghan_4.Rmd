@@ -1,0 +1,52 @@
+---
+title: "Ccroghan_4"
+author: "Cameron Croghan"
+date: "9/30/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Question 1
+
+/*Decision Variables*/
+Xij, i=plants, j=warehouses
+
+/*Objective Function*/
+Min: 22X11 + 16X21 + 14X12 + 20X22 + 30X13 + 24X23 + 600(X11+X12+X13) + 625(X21+X22+X23)
+
+/*Constraints*/
+X11 + X21 >= 80;
+X12 + X22 >= 60;
+X13 + X23 >= 70;
+X11 + X12 + X13 <= 100;
+X21 + X22 + X23 <= 120;
+
+library(lpsolve)
+x<-read.lp("Assignment 4.lp")
+solve(x)
+get.variables(x)
+get.constraints(x)
+
+Question 2
+The optimum solution provides a minimum cost of $1975 with all wells being used to their maximum capacity. This is due to the fact that the demand is higher than the supply.
+
+/*Decision variables*/
+Xijk, i=wells, j=pump, k=refinery
+
+/*Objective Function*/
+Min: Xijk
+
+/*Constraints*/
+X1jk<=93;
+X2jk<=88;
+X3jk<=95;
+Xij1>=30;
+Xij2>=57;
+Xij3>=48;
+Xij4>=91;
+Xij5>=48;
+
+(part b in github)
